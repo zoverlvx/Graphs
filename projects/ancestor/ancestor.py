@@ -20,13 +20,17 @@ def earliest_ancestor(
         parent = ancestor[0]
         child = ancestor[1]
         geneology[child].append(parent)
+
+    if starting_node not in geneology:
+        raise IndexError(F"Node does not exist")
+        return None
     
-    #print(geneology)
-    print(geneology[starting_node])
+    print(geneology[starting_node][-1])
+    return geneology[starting_node][-1]
 
 
 
 
 test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
 
-earliest_ancestor(test_ancestors, 3)
+earliest_ancestor(test_ancestors, 2)
